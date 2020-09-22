@@ -55,7 +55,6 @@ export default class OrxeChips extends LitElement {
 
   addDynamicClass(event){
     let elems = event.currentTarget.parentNode.querySelector(".active");
-    console.log(elems)
     if(elems !==null){
      elems.classList.remove("active");
     }
