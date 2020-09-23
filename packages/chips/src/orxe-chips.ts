@@ -1,35 +1,18 @@
-import { html, customElement, LitElement } from 'lit-element';
+import { html, customElement, LitElement, property } from 'lit-element';
 import styles from './chips-css';
 
 @customElement('orxe-chips')
 export default class OrxeChips extends LitElement {
 
-  labels = [
-    {
-      name: 'Label 1',
-      count: 8.7,
-    },
-    {
-      name: 'Label 2',
-      count: 6.7,
-    },
-    {
-      name: 'Label 3',
-      count: 5.7,
-    },
-    {
-      name: 'Label 4',
-      count: 9.7,
-    },
-    {
-      name: 'Label 5',
-      count: 9.7,
-    },
-    {
-      name: 'Label 6',
-      count: 9.7,
-    },
-  ];
+  @property({type: String, attribute:'chip-content',reflect:true})
+  chipContent;
+
+  @property({type: String, attribute:'chip-counter',reflect:true})
+  chipCounter;
+
+  @property({type: String, attribute:'chip-selected',reflect:true})
+  chipSelected;
+
   constructor() {
     super();
   }
@@ -39,13 +22,23 @@ export default class OrxeChips extends LitElement {
 
    render() {
     return html`
-    <div class="main">${this.labels.map((currentelement) => html`
+    <div class="main">
         <div data-testid="chips-container" class="container" @click="${this.addDynamicClass}">
-          <label class="label-text">${currentelement.name}</label>
-          <label class="label-number">${currentelement.count}</label>
+          ${this. renderLeftLabel()}${this.renderRightNumber()}
         </div>
-        `)}
     </div>
+    `;
+  }
+
+  renderLeftLabel(){
+    return html`
+          <label class="label-text">${this.chipContent}</label>
+    `;
+  }
+
+  renderRightNumber(){
+    return html`
+         <label class="label-number">${this.chipCounter}</label>
     `;
   }
 
@@ -53,12 +46,8 @@ export default class OrxeChips extends LitElement {
    *  add dynamic class for label container
    */
 
-  addDynamicClass(event){
-    let elems = event.currentTarget.parentNode.querySelector(".active");
-    if(elems !==null){
-     elems.classList.remove("active");
-    }
-    event.currentTarget.className += " active";
+  addDynamicClass(){
+      this.chipSelected = !this.chipSelected;
   }
 
   /**

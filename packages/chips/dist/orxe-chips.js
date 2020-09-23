@@ -7,58 +7,48 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-import { html, customElement, LitElement } from 'lit-element';
+import { html, customElement, LitElement, property } from 'lit-element';
 import styles from './chips-css';
 let OrxeChips = class OrxeChips extends LitElement {
     constructor() {
         super();
-        this.labels = [
-            {
-                name: 'Label 1',
-                count: 8.7,
-            },
-            {
-                name: 'Label 2',
-                count: 6.7,
-            },
-            {
-                name: 'Label 3',
-                count: 5.7,
-            },
-            {
-                name: 'Label 4',
-                count: 9.7,
-            },
-            {
-                name: 'Label 5',
-                count: 9.7,
-            },
-            {
-                name: 'Label 6',
-                count: 9.7,
-            },
-        ];
     }
     render() {
         return html `
-    <div class="main">${this.labels.map((currentelement) => html `
+    <div class="main">
         <div data-testid="chips-container" class="container" @click="${this.addDynamicClass}">
-          <label class="label-text">${currentelement.name}</label>
-          <label class="label-number">${currentelement.count}</label>
+          ${this.renderLeftLabel()}${this.renderRightNumber()}
         </div>
-        `)}
     </div>
     `;
     }
-    addDynamicClass(event) {
-        let elems = event.currentTarget.parentNode.querySelector(".active");
-        if (elems !== null) {
-            elems.classList.remove("active");
-        }
-        event.currentTarget.className += " active";
+    renderLeftLabel() {
+        return html `
+          <label class="label-text">${this.chipContent}</label>
+    `;
+    }
+    renderRightNumber() {
+        return html `
+         <label class="label-number">${this.chipCounter}</label>
+    `;
+    }
+    addDynamicClass() {
+        this.chipSelected = !this.chipSelected;
     }
 };
 OrxeChips.styles = styles;
+__decorate([
+    property({ type: String, attribute: 'chip-content', reflect: true }),
+    __metadata("design:type", Object)
+], OrxeChips.prototype, "chipContent", void 0);
+__decorate([
+    property({ type: String, attribute: 'chip-counter', reflect: true }),
+    __metadata("design:type", Object)
+], OrxeChips.prototype, "chipCounter", void 0);
+__decorate([
+    property({ type: String, attribute: 'chip-selected', reflect: true }),
+    __metadata("design:type", Object)
+], OrxeChips.prototype, "chipSelected", void 0);
 OrxeChips = __decorate([
     customElement('orxe-chips'),
     __metadata("design:paramtypes", [])

@@ -30,22 +30,6 @@ describe('orxe-chips', () => {
   });
 
   it('Should function addDynamicClass is call', () => {
-    const dummyEvent = {
-            currentTarget: {
-                 parentNode: {
-                  querySelector: () => {
-                      return { active: 'active', classList: { 
-                        remove: () => {
-                          return 'active'
-                        }
-                      }
-                      };
-                  },
-                  classList: ["container", "active"],
-                  className: 'active'
-                 }
-            }
-        };
-        expect(chips.addDynamicClass(dummyEvent)).toBeUndefined();
+        expect(chips.addDynamicClass()).toBeUndefined();
     });
 });
