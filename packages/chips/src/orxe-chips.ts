@@ -22,11 +22,9 @@ export default class OrxeChips extends LitElement {
 
    render() {
     return html`
-    <div class="main">
-        <div data-testid="chips-container" class="container" @click="${this.addDynamicClass}">
+        <div data-testid="chips-container" class="container" @click="${this.onclickChip}">
           ${this. renderLeftLabel()}${this.renderRightNumber()}
         </div>
-    </div>
     `;
   }
 
@@ -46,7 +44,7 @@ export default class OrxeChips extends LitElement {
    *  add dynamic class for label container
    */
 
-  addDynamicClass(){
+  onclickChip(){
       this.chipSelected = !this.chipSelected;
   }
 

@@ -29,7 +29,7 @@ describe('orxe-chips', () => {
     expect(chips.render()).toBeTruthy();
   });
 
-  it('Should function addDynamicClass is call', () => {
-        expect(chips.addDynamicClass()).toBeUndefined();
+  it('Should function onclickChip is call', () => {
+        expect(chips.onclickChip()).toBeUndefined();
     });
 });

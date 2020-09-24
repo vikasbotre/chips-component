@@ -15,11 +15,9 @@ let OrxeChips = class OrxeChips extends LitElement {
     }
     render() {
         return html `
-    <div class="main">
-        <div data-testid="chips-container" class="container" @click="${this.addDynamicClass}">
+        <div data-testid="chips-container" class="container" @click="${this.onclickChip}">
           ${this.renderLeftLabel()}${this.renderRightNumber()}
         </div>
-    </div>
     `;
     }
     renderLeftLabel() {
@@ -32,7 +30,7 @@ let OrxeChips = class OrxeChips extends LitElement {
          <label class="label-number">${this.chipCounter}</label>
     `;
     }
-    addDynamicClass() {
+    onclickChip() {
         this.chipSelected = !this.chipSelected;
     }
 };

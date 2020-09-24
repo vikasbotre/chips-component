@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<coverage generated="1600975984023" clover="3.2.0">
+  <project timestamp="1600975984023" name="All files">
+    <metrics statements="7" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="2" elements="10" coveredelements="7" complexity="0" loc="7" ncloc="7" packages="1" files="2" classes="2"/>
+    <file name="index.ts" path="D:\workspace\tavisca-chips-assignment\my-first-project\packages\chip-group\src\index.ts">
+      <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+    </file>
+    <file name="orxe-chip-group.ts" path="D:\workspace\tavisca-chips-assignment\my-first-project\packages\chip-group\src\orxe-chip-group.ts">
+      <metrics statements="7" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="2"/>
+      <line num="11" count="3" type="stmt"/>
+      <line num="15" count="1" type="stmt"/>
+      <line num="16" count="1" type="stmt"/>
+      <line num="17" count="0" type="stmt"/>
+      <line num="19" count="1" type="stmt"/>
+      <line num="20" count="0" type="stmt"/>
+      <line num="28" count="2" type="stmt"/>
+    </file>
+  </project>
+</coverage>

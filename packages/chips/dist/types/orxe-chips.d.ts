@@ -7,6 +7,6 @@ export default class OrxeChips extends LitElement {
     render(): import("lit-element").TemplateResult;
     renderLeftLabel(): import("lit-element").TemplateResult;
     renderRightNumber(): import("lit-element").TemplateResult;
-    addDynamicClass(): void;
+    onclickChip(): void;
     static styles: import("lit-element").CSSResult;
 }
